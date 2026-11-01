@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
 // Database & Collections
 const db = client.db("doctors-tracker");
 const doctorsCollection = db.collection("doctors");
+const patientsCollection = db.collection("patients");
 
 
 // Add Doctor
@@ -82,6 +83,12 @@ app.delete("/api/delete/doctor/:id", async (req, res) => {
   res.send(result);
 });
 
+
+// Add Patient
+app.post("/api/addpatient", async (req, res) => {
+  const result = await patientsCollection.insertOne(req.body);
+  res.send(result);
+});
 
 
 
