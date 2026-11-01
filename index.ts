@@ -46,10 +46,13 @@ app.post("/api/adddoctor", async (req, res) => {
   res.send(result);
 });
 
-// Get All Doctors
-app.get("/api/get/doctor", async (req, res) => {
-  const doctors = await doctorsCollection.find().toArray();
-  res.send(doctors);
+// Get Doctor By ID
+app.get("/api/get/doctor/:id", async (req, res) => {
+  const doctor = await doctorsCollection.findOne({
+    _id: new ObjectId(req.params.id),
+  });
+
+  res.send(doctor);
 });
 
 // Edit Doctor
