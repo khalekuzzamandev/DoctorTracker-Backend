@@ -90,6 +90,13 @@ app.post("/api/addpatient", async (req, res) => {
   res.send(result);
 });
 
+// Get All Patients
+app.get("/api/get/patient", async (req, res) => {
+  const patients = await patientsCollection.find().toArray();
+  res.send(patients);
+});
+
+/
 
 
 
