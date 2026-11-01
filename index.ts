@@ -104,6 +104,15 @@ app.get("/api/get/patient/:id", async (req, res) => {
   res.send(patient);
 });
 
+// Edit Patient
+app.put("/api/update/patient/:id", async (req, res) => {
+  const result = await patientsCollection.updateOne(
+    { _id: new ObjectId(req.params.id) },
+    { $set: req.body }
+  );
+  res.send(result);
+});
+
 
 
 
