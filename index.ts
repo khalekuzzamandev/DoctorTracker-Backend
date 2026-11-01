@@ -96,7 +96,15 @@ app.get("/api/get/patient", async (req, res) => {
   res.send(patients);
 });
 
-/
+// Get Patient By ID
+app.get("/api/get/patient/:id", async (req, res) => {
+  const patient = await patientsCollection.findOne({
+    _id: new ObjectId(req.params.id),
+  });
+  res.send(patient);
+});
+
+
 
 
 
