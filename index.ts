@@ -113,6 +113,14 @@ app.put("/api/update/patient/:id", async (req, res) => {
   res.send(result);
 });
 
+// Delete Patient
+app.delete("/api/delete/patient/:id", async (req, res) => {
+  const result = await patientsCollection.deleteOne({
+    _id: new ObjectId(req.params.id),
+  });
+  res.send(result);
+});
+
 
 
 
