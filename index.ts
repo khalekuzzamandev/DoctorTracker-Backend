@@ -65,7 +65,7 @@ app.get("/api/get/doctor/:id", async (req, res) => {
 
 
 // Edit Doctor
-app.put("/api/update/doctor/:id", async (req, res) => {
+app.patch("/api/update/doctor/:id", async (req, res) => {
   const result = await doctorsCollection.updateOne(
     { _id: new ObjectId(req.params.id) },
     { $set: req.body }
